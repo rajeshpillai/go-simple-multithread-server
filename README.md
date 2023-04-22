@@ -1,8 +1,11 @@
-# Go Multithreaded Simple Server
+#GoServer
+Go Multithreaded Simple Server
 
 
-# Run the app
-```go run main.go
+#Demo 
+Run the app
+```
+go run main.go
 
 ```
 
