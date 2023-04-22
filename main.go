@@ -3,9 +3,13 @@ package main
 import (
   "fmt"
   "net"
+  "log"
 )
 
 func main () {
-  net.Listen("tcp", ":1729")
-  fmt.Println("Helloo, World!")
+  listener, err := net.Listen("tcp", ":1729")
+  if err != nil {
+    log.Fatal(err)
+  }
+  fmt.Println("Helloo, World!", listener)
 }
