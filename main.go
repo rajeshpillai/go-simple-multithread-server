@@ -29,11 +29,13 @@ func main () {
     log.Fatal(err)
   }
 
-  conn, err :=  listener.Accept()
-  if err != nil {
-    log.Fatal(err)
-  }
+  for {
+    conn, err :=  listener.Accept()
+    if err != nil {
+      log.Fatal(err)
+    }
 
-  fmt.Println(conn)
-  do (conn)
+    fmt.Println(conn)
+    do (conn)
+  }
 }
