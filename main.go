@@ -1,7 +1,6 @@
 package main
 
 import (
-  "fmt"
   "net"
   "log"
   "time"
@@ -16,8 +15,9 @@ func do (conn net.Conn) {
   }
 
   //Processing
-
-  time.Sleep(1 * time.Second)  // Long running simulation
+  log.Println("Processing the request...")
+  // 8 seconds
+  time.Sleep(8 * time.Second)  // Long running simulation
 
   conn.Write([]byte("HTTP/1.1 200 OK\r\n\r\nHello, Worrld!\r\n"))
   conn.Close()
@@ -30,12 +30,13 @@ func main () {
   }
 
   for {
+    log.Println("Waiting for a client to connect...")
     conn, err :=  listener.Accept()
     if err != nil {
       log.Fatal(err)
     }
 
-    fmt.Println(conn)
+    log.Println("Client connected!")
     do (conn)
   }
 }
